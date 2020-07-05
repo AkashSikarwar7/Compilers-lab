@@ -1,0 +1,23 @@
+%{
+#include <stdio.h>
+int Vowel= 0 ;
+int Consonent = 0 ;
+int digit=0;
+%}
+
+%%
+[aeiouAEIOU] {Vowel++;}
+[a-z][A-Z] {Consonent++;}
+[0-9]
+%%
+
+int yywrap(){
+return 1;
+}
+
+main(){
+printf("Enter the String\n");
+yylex();
+
+printf("Vowel = %d \nConsonent = %d",Vowel,Consonent);
+}
