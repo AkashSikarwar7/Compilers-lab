@@ -1,0 +1,24 @@
+%{
+#include <stdio.h>
+int count = 0 ;
+char word[20];
+%}
+
+%%
+[a-zA-Z] {count++;}
+[\ ] {printf("%d",count);}
+[\n] {printf("%d",count);}
+%%
+
+int yywrap(){
+return 1;
+}
+
+main(){
+printf("Enter the String\n");
+yylex();
+
+}
+
+//yyleng
+//yytext
